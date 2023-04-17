@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=K2D:500&subset=latin-ext');
+
+body {
+  background: #e29ed9;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: K2D, Arial;
+}
+
+.gallery-box-container {
+  display: flex;
+  justify-content:space-between;
+  flex:0 1 90%;
+    flex-wrap: wrap;
+}
+
+.gallery-box {
+  display: block;
+  color: #FFF;
+  flex: 0 1 calc(25% - 15px);
+  height: 400px;
+  background: #fea200;
+  border-radius: 10px;
+  box-shadow: 3px 3px 15px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+  
+  @media screen and (max-width: 1200px) {
+      flex: 0 1 calc(50% - 15px);
+      margin: 15px 0;
+  }
+
+  @media screen and (max-width: 640px) {
+      flex: 0 1 calc(100% - 15px);
+  }
+  
+  &__img-container {
+    display: block;
+    width: 135%;
+    height: 350px;
+    background: #FFF;
+        border-radius: 0 0 40px 40px;
+        border:2px solid #FFFFF8;
+        transform: rotate(25deg);
+        position: absolute;
+        left: -15%;
+        top: -75px;
+        transition: all 0.4s ease;
+        overflow: hidden;
+        
+        @media screen and (max-width: 1200px) {
+        height: 420px;
+        top: -180px;
+    }
+
+    @media screen and (max-width: 900px) {
+        height: 420px;
+        top: -120px;
+    }
+
+    @media screen and (max-width: 640px) {
+        height: 450px;
+        top: -190px;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    transform: rotate(-25deg) scale(1.1);
+    transition: all 0.4s ease;
+  }
+
+  &__text-wrapper {
+    transition: all 0.4s ease;
+    position: absolute;
+    left: 15px;
+    top: 250px;
+    width: 80%;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 22px;
+    padding: 8px 0;
+    box-shadow: 8px 0 0 rgba(0,0,0, 0.7), -8px 0 0 rgba(0,0,0, 0.7);
+    // box-decoration-break: clone;
+    line-height: 2;
+    background: rgba(0,0,0, 0.7);
+    
+    @media screen and (max-width: 900px) {
+        font-size: 20px;
+    }
+  }
+
+  &:hover & {
+    &__img-container {
+      width: 110%;
+      height: 450px;
+          border-radius: 0;
+          transform: rotate(0);
+          left: -2px;
+          top: -120px;
+    }
+
+    &__img {
+      display: block;
+      width: 100%;
+      transform: rotate(0deg) scale(1);
+    }
+
+    &__text-wrapper {
+      top: 288px;
+    }
+  }
+}
